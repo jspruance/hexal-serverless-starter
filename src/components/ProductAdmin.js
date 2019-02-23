@@ -10,12 +10,14 @@ export default class ProductAdmin extends Component {
 
   handleAddProduct = event => {
     event.preventDefault();
+    // add call to AWS API Gateway add product endpoint here
     this.setState({ products: [...this.state.products, this.state.newproduct] })
     this.setState({ newproduct: '' });
   }
 
   handleDeleteProduct = (name, event) => {
     event.preventDefault();
+    // add call to AWS API Gateway delete product endpoint here
     var updatedProducts = [...this.state.products];
     var index = updatedProducts.indexOf(name)
     if (index !== -1) {
@@ -24,10 +26,15 @@ export default class ProductAdmin extends Component {
     }
   }
 
+  fetchProducts = () => {
+    // add call to AWS API Gateway to fetch products here
+    // then set them in state
+  }
+
   onAddProductChange = event => this.setState({ newproduct: event.target.value });
 
   componentDidMount = () => {
-    // add init code here
+    this.fetchProducts();
   }
 
   render() {
