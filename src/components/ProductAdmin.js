@@ -4,7 +4,10 @@ import Product from './Product';
 export default class ProductAdmin extends Component {
 
   state = {
-    newproduct: '',
+    newproduct: { 
+      "productname": "", 
+      "id": ""
+    },
     products: []
   }
 
@@ -12,18 +15,23 @@ export default class ProductAdmin extends Component {
     event.preventDefault();
     // add call to AWS API Gateway add product endpoint here
     this.setState({ products: [...this.state.products, this.state.newproduct] })
-    this.setState({ newproduct: '' });
+    this.setState({ newproduct: { "productname": "", "id": ""}});
   }
 
-  handleDeleteProduct = (name, event) => {
+  handleUpdateProduct = (id, name) => {
+    // add call to AWS API Gateway update product endpoint here
+    const productToUpdate = [...this.state.products].find(product => product.id === id);
+    const updatedProducts = [...this.state.products].filter(product => product.id !== id);
+    productToUpdate.productname = name;
+    updatedProducts.push(productToUpdate);
+    this.setState({products: updatedProducts});
+  }
+
+  handleDeleteProduct = (id, event) => {
     event.preventDefault();
     // add call to AWS API Gateway delete product endpoint here
-    var updatedProducts = [...this.state.products];
-    var index = updatedProducts.indexOf(name)
-    if (index !== -1) {
-      updatedProducts.splice(index, 1);
-      this.setState({products: updatedProducts});
-    }
+    const updatedProducts = [...this.state.products].filter(product => product.id !== id);
+    this.setState({products: updatedProducts});
   }
 
   fetchProducts = () => {
@@ -31,7 +39,8 @@ export default class ProductAdmin extends Component {
     // then set them in state
   }
 
-  onAddProductChange = event => this.setState({ newproduct: event.target.value });
+  onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
+  onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
 
   componentDidMount = () => {
     this.fetchProducts();
@@ -46,35 +55,47 @@ export default class ProductAdmin extends Component {
             <p className="subtitle is-5">Add and remove products using the form below:</p>
             <br />
             <div className="columns">
-              <div className="column is-one-half">
+              <div className="column is-one-third">
                 <form onSubmit={this.handleAddProduct}>
                   <div className="field has-addons">
                     <div className="control">
                       <input 
-                        className="input is-large"
+                        className="input is-medium"
                         type="text" 
-                        placeholder="Enter product"
-                        value={this.state.newproduct}
-                        onChange={this.onAddProductChange}
+                        placeholder="Enter name"
+                        value={this.state.newproduct.productname}
+                        onChange={this.onAddProductNameChange}
                       />
                     </div>
                     <div className="control">
-                      <button type="submit" className="button is-primary is-large">
-                        Add
+                      <input 
+                        className="input is-medium"
+                        type="text" 
+                        placeholder="Enter id"
+                        value={this.state.newproduct.id}
+                        onChange={this.onAddProductIdChange}
+                      />
+                    </div>
+                    <div className="control">
+                      <button type="submit" className="button is-primary is-medium">
+                        Add product
                       </button>
                     </div>
                   </div>
                 </form>
               </div>
-              <div className="column is-one-half">
+              <div className="column is-two-thirds">
                 <div className="tile is-ancestor">
                   <div className="tile is-4 is-parent  is-vertical">
                     { 
                       this.state.products.map((product, index) => 
                         <Product 
+                          isAdmin={true}
+                          handleUpdateProduct={this.handleUpdateProduct}
                           handleDeleteProduct={this.handleDeleteProduct} 
-                          name={product} 
-                          key={index}
+                          name={product.productname} 
+                          id={product.id}
+                          key={product.id}
                         />)
                     }
                   </div>

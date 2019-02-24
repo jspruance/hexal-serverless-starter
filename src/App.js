@@ -6,6 +6,9 @@ import Home from './components/Home';
 import Products from './components/Products';
 import ProductAdmin from './components/ProductAdmin';
 import Footer from './components/Footer';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+library.add(faEdit);
 
 class App extends Component {
   render() {

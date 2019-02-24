@@ -4,22 +4,20 @@ import Product from './Product';
 export default class Products extends Component {
 
   state = {
-    newproduct: '',
+    newproduct: null,
     products: []
   }
 
   handleAddProduct = event => {
     event.preventDefault();
     this.setState({ products: [...this.state.products, this.state.newproduct] })
-    this.setState({ newproduct: '' });
+    this.setState({ newproduct: null });
   }
 
   fetchProducts = () => {
     // add call to AWS API Gateway to fetch products here
     // then set them in state
   }
-
-  onAddProductChange = event => this.setState({ newproduct: event.target.value });
 
   componentDidMount = () => {
     this.fetchProducts();
@@ -39,7 +37,7 @@ export default class Products extends Component {
                   <div className="tile is-4 is-parent  is-vertical">
                     { 
                       this.state.products.length > 0
-                      ? this.state.products.map(product => <Product name={product} />)
+                      ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} />)
                       : <div className="tile notification is-warning">No products available</div>
                     }
                   </div>
