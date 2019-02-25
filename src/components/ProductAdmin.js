@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Product from './Product';
+const config = require('../config.json');
 
 export default class ProductAdmin extends Component {
 
