@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Product from './Product';
+import axios from "axios";
 const config = require('../config.json');
 
 export default class Products extends Component {
@@ -9,7 +10,7 @@ export default class Products extends Component {
     products: []
   }
 
-  fetchProducts = () => {
+  fetchProducts = async () => {
     // add call to AWS API Gateway to fetch products here
     // then set them in state
   }
