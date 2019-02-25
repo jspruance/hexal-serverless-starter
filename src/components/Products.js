@@ -13,7 +13,6 @@ export default class Products extends Component {
   fetchProducts = () => {
     // add call to AWS API Gateway to fetch products here
     // then set them in state
-
   }
 
   componentDidMount = () => {

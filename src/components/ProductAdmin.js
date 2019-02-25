@@ -13,7 +13,7 @@ export default class ProductAdmin extends Component {
     products: []
   }
 
-  handleAddProduct = event => {
+  handleAddProduct = (id, event) => {
     event.preventDefault();
     // add call to AWS API Gateway add product endpoint here
     this.setState({ products: [...this.state.products, this.state.newproduct] })
@@ -58,7 +58,7 @@ export default class ProductAdmin extends Component {
             <br />
             <div className="columns">
               <div className="column is-one-third">
-                <form onSubmit={this.handleAddProduct}>
+                <form onSubmit={event => this.handleAddProduct(this.state.newproduct.id, event)}>
                   <div className="field has-addons">
                     <div className="control">
                       <input 
