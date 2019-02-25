@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component, Fragment }  from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class ProductAdmin extends Component {
@@ -24,12 +24,14 @@ export default class ProductAdmin extends Component {
   render() {
     return (
       <div className="tile is-child box notification is-success">
-        <a href="/" onClick={this.handleProductEdit} className="product-edit-icon">
-          <FontAwesomeIcon icon="edit" />
-        </a>
         {
           this.props.isAdmin && 
-          <button onClick={event => this.props.handleDeleteProduct(this.props.id, event)} className="delete"></button>
+          <Fragment>
+            <a href="/" onClick={this.handleProductEdit} className="product-edit-icon">
+              <FontAwesomeIcon icon="edit" />
+            </a>
+            <button onClick={event => this.props.handleDeleteProduct(this.props.id, event)} className="delete"></button>
+          </Fragment>
         }
         {
           this.state.isEditMode 
