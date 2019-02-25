@@ -1,17 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import Product from './Product';
+const config = require('../config.json');
 
 export default class Products extends Component {
 
   state = {
     newproduct: null,
     products: []
-  }
-
-  handleAddProduct = event => {
-    event.preventDefault();
-    this.setState({ products: [...this.state.products, this.state.newproduct] })
-    this.setState({ newproduct: null });
   }
 
   fetchProducts = () => {
