@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Product from './Product';
-import axios from "axios";
+import axios from "axios"; // this ia a library, like fetch it uses axios.get, axios.put, axios.post and so forth...
+
 const config = require('../config.json');
 
 export default class ProductAdmin extends Component {
@@ -13,32 +14,66 @@ export default class ProductAdmin extends Component {
     products: []
   }
 
-  handleAddProduct = (id, event) => {
+  handleAddProduct = async (id, event) => {
     event.preventDefault();
-    // add call to AWS API Gateway add product endpoint here
+    // add call to AWS API Gateway add product endpoint 
+    try {
+      const params = {
+        "id": id,
+        "productname": this.state.newproduct.productname
+      };
+      await axios.post(`${config.api.invokeUrl}/products/{id}`, params);
+      this.setState({ products: [...this.state.products, this.state.newproduct] });
+      this.setState({ newproduct: { "productname": "", "id": "" }});
+    }catch (err) {
+      console.log('An error has occurred: ${err}');
+    }
+
     this.setState({ products: [...this.state.products, this.state.newproduct] })
     this.setState({ newproduct: { "productname": "", "id": ""}});
   }
 
-  handleUpdateProduct = (id, name) => {
+  handleUpdateProduct = async (id, name) => {
     // add call to AWS API Gateway update product endpoint here
-    const productToUpdate = [...this.state.products].find(product => product.id === id);
-    const updatedProducts = [...this.state.products].filter(product => product.id !== id);
-    productToUpdate.productname = name;
-    updatedProducts.push(productToUpdate);
-    this.setState({products: updatedProducts});
+    try {
+      const params = {
+        "id": id,
+        "productname": name
+      };
+      await axios.patch(`${config.api.invokeUrl}/products/{id}`, params);
+      const productToUpdate = [...this.state.products].find(product => product.id === id);
+      const updatedProducts = [...this.state.products].filter(product => product.id !== id);
+      productToUpdate.productname = name;
+      updatedProducts.push(productToUpdate);
+      this.setState({products: updatedProducts});
+    }catch (err) {
+      console.log(`Error updating product: ${err}`); 
+    }  
   }
 
-  handleDeleteProduct = (id, event) => {
+  handleDeleteProduct = async (id, event) => {
     event.preventDefault();
     // add call to AWS API Gateway delete product endpoint here
-    const updatedProducts = [...this.state.products].filter(product => product.id !== id);
-    this.setState({products: updatedProducts});
+    try {
+      await axios.delete(`${config.api.invokeUrl}/products/{id}`);      //.. passing in products/{id} as path parameter.
+      const updatedProducts = [...this.state.products].filter(product => product.id !== id);
+      this.setState({products: updatedProducts});
+    }catch (err) {
+      console.log('Unable to delete product: ${err}');
+    }
+    
   }
 
-  fetchProducts = () => {
+  fetchProducts = async () => {
     // add call to AWS API Gateway to fetch products here
     // then set them in state
+    try {
+      const res = await axios.get(`${config.api.invokeUrl}/products`); // pass in the invokeUrl we import from const config.json at the top.
+      this.setState({ products: res.data });  // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
+    }catch (err) {
+      console.log(`An error has occurred: ${err}`);
+    }
+    
   }
 
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
@@ -53,8 +88,8 @@ export default class ProductAdmin extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Product Admin</h1>
-            <p className="subtitle is-5">Add and remove products using the form below:</p>
+            <h1>Customer Admin</h1>
+            <p className="subtitle is-5">Add and remove customer, customer products using the form below:</p>
             <br />
             <div className="columns">
               <div className="column is-one-third">
