@@ -23,14 +23,12 @@ export default class ProductAdmin extends Component {
         "productname": this.state.newproduct.productname
       };
       await axios.post(`${config.api.invokeUrl}/products/{id}`, params);
-      this.setState({ products: [...this.state.products, this.state.newproduct] });
-      this.setState({ newproduct: { "productname": "", "id": "" }});
+      this.setState({ products: [...this.state.products, this.state.newproduct] });   // using the spread operator [...] to add in the current state.
+      this.setState({ newproduct: { "productname": "", "id": "" }});  // now, reset the state to make sure it's a property initialized to empty strings again.
     }catch (err) {
       console.log('An error has occurred: ${err}');
     }
-
-    this.setState({ products: [...this.state.products, this.state.newproduct] })
-    this.setState({ newproduct: { "productname": "", "id": ""}});
+    
   }
 
   handleUpdateProduct = async (id, name) => {
@@ -60,16 +58,17 @@ export default class ProductAdmin extends Component {
       this.setState({products: updatedProducts});
     }catch (err) {
       console.log('Unable to delete product: ${err}');
-    }
-    
+    }   
+
   }
 
   fetchProducts = async () => {
     // add call to AWS API Gateway to fetch products here
     // then set them in state
     try {
-      const res = await axios.get(`${config.api.invokeUrl}/products`); // pass in the invokeUrl we import from const config.json at the top.
-      this.setState({ products: res.data });  // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
+      const res = await axios.get(`${config.api.invokeUrl}/products`);                // pass in the invokeUrl we import from const config.json at the top.
+      const products = res.data;
+      this.setState({ products: products });                                          // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
     }catch (err) {
       console.log(`An error has occurred: ${err}`);
     }
