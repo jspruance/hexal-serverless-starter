@@ -9,7 +9,7 @@ export default class ProductAdmin extends Component {
   state = {
     newproduct: { 
       "productname": "", 
-      "id": ""
+      "id": "", 
     },
     products: []
   }
@@ -20,11 +20,12 @@ export default class ProductAdmin extends Component {
     try {
       const params = {
         "id": id,
-        "productname": this.state.newproduct.productname
+        "productname": this.state.newproduct.productname,
+        
       };
       await axios.post(`${config.api.invokeUrl}/products/{id}`, params);
-      this.setState({ products: [...this.state.products, this.state.newproduct] });   // using the spread operator [...] to add in the current state.
-      this.setState({ newproduct: { "productname": "", "id": "" }});  // now, reset the state to make sure it's a property initialized to empty strings again.
+      this.setState({ products: [...this.state.products, this.state.newproduct] });         // using the spread operator [...] to add in the current state.
+      this.setState({ newproduct: { "productname": "", "id": ""}});                         // now, reset the state to make sure it's a property initialized to empty strings again.
     }catch (err) {
       console.log('An error has occurred: ${err}');
     }
@@ -36,7 +37,7 @@ export default class ProductAdmin extends Component {
     try {
       const params = {
         "id": id,
-        "productname": name
+        "productname": name,
       };
       await axios.patch(`${config.api.invokeUrl}/products/{id}`, params);
       const productToUpdate = [...this.state.products].find(product => product.id === id);
@@ -77,7 +78,7 @@ export default class ProductAdmin extends Component {
 
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
-
+  
   componentDidMount = () => {
     this.fetchProducts();
   }
@@ -88,17 +89,17 @@ export default class ProductAdmin extends Component {
         <section className="section">
           <div className="container">
             <h1>Customer Admin</h1>
-            <p className="subtitle is-5">Add and remove customer, customer products using the form below:</p>
+            <p className="subtitle is-5">Add or remove trucking customer/delivery stats using the form below:</p>
             <br />
             <div className="columns">
-              <div className="column is-one-third">
+              <div className="column is-two-fifths">
                 <form onSubmit={event => this.handleAddProduct(this.state.newproduct.id, event)}>
                   <div className="field has-addons">
                     <div className="control">
                       <input 
                         className="input is-medium"
                         type="text" 
-                        placeholder="Enter name"
+                        placeholder="Truck company"
                         value={this.state.newproduct.productname}
                         onChange={this.onAddProductNameChange}
                       />
@@ -107,14 +108,14 @@ export default class ProductAdmin extends Component {
                       <input 
                         className="input is-medium"
                         type="text" 
-                        placeholder="Enter id"
+                        placeholder="Company id"
                         value={this.state.newproduct.id}
                         onChange={this.onAddProductIdChange}
                       />
                     </div>
                     <div className="control">
                       <button type="submit" className="button is-primary is-medium">
-                        Add product
+                        Add customer
                       </button>
                     </div>
                   </div>
@@ -132,6 +133,13 @@ export default class ProductAdmin extends Component {
                           name={product.productname} 
                           id={product.id}
                           key={product.id}
+                          date={product.date}
+                          drivername={product.drivername}
+                          time={product.time} 
+                          truckheading={product.truckheading}  
+                          trucklocation={product.trucklocation}  
+                          trucknumber={product.trucknumber}  
+                          truckspeed={product.truckspeed}   
                         />)
                     }
                   </div>

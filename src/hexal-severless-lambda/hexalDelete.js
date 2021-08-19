@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     let responseBody =  "";   
     let statusCode = 0;
     
-    const { id } = event.pathParameters; // so when we want to access the event.body, it's event.body.
+    const { id } = event.pathParameters; // so when we want to access the event's body, it's [event.body].
     const params = {         
         TableName: "Products",
         Key: {     

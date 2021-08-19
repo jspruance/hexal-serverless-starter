@@ -25,6 +25,13 @@ export default class Products extends Component {
 
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
+  onAddProductTruckDriverNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "drivername": event.target.value } });
+  onAddProductDateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "date": event.target.value } });
+  onAddProductTimeChange = event => this.setState({ newproduct: { ...this.state.newproduct, "time": event.target.value } });
+  onAddProductTuckLocationChange = event => this.setState({ newproduct: { ...this.state.newproduct, "trucklocation": event.target.value } });
+  onAddProductTuckHeadingChange = event => this.setState({ newproduct: { ...this.state.newproduct, "truckheading": event.target.value } });
+  onAddProductTuckNumberChange = event => this.setState({ newproduct: { ...this.state.newproduct, "trucknumber": event.target.value } });
+  onAddProductTuckSpeedChange = event => this.setState({ newproduct: { ...this.state.newproduct, "truckspeed": event.target.value } });
 
   componentDidMount = () => {  // A React life-cycle method: any component inside here will fire when components is initialized.
     this.fetchProducts();
@@ -35,8 +42,8 @@ export default class Products extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Energy Products</h1>
-            <p className="subtitle is-5">Invest in a clean future with our efficient and cost-effective green energy products:</p>
+            <h1>Customer Product Delivery</h1>
+            <p className="subtitle is-5">Manage real-time truck delivery stats for product deliveries:</p>
             <br />
             <div className="columns">
               <div className="column">
@@ -44,7 +51,7 @@ export default class Products extends Component {
                   <div className="tile is-4 is-parent  is-vertical">
                     { 
                       this.state.products && this.state.products.length > 0
-                      ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} />)
+                      ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} drivername={product.drivername} date={product.date} time={product.time} trucklocation={product.trucklocation} truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} />)
                       : <div className="tile notification is-warning">No products available</div>
                     }
                   </div>
