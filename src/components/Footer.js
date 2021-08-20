@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="content has-text-centered">
         <p>
-           Stat-Tracker 2020&copy;. Sealy Stat-Tracker, LLC. The website content is licensed CC BY APOS SOFTWARE USA 1.0.
+           <em>Trans</em>StatCom&copy; &bull; aSealy, LLC.  &bull; The application software content is licensed by APOS Thundecloud Series &bull; USA
         </p>
       </div>
     </footer>
