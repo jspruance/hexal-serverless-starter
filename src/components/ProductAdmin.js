@@ -88,8 +88,8 @@ export default class ProductAdmin extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Customer Admin</h1>
-            <p className="subtitle is-5">Add or remove trucking customer/delivery stats using the form below:</p>
+            <h1>Stat Admin</h1>
+            <p className="subtitle is-5">Add or remove truck fleet stats/delivery stats using the form below:</p>
             <br />
             <div className="columns">
               <div className="column is-two-fifths">

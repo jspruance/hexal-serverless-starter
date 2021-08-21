@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="content has-text-centered">
         <p>
-           <em>Trans</em>StatCom&copy; &bull; aSealy, LLC.  &bull; The application software content is licensed by APOS Thundecloud Series &bull; USA
+          TranStat <em>Live</em>&copy; &bull; aSealy, LLC.  &bull; The application software content is licensed by APOS Thundecloud Series &bull; USA
         </p>
       </div>
     </footer>
