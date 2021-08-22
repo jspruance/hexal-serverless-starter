@@ -88,7 +88,7 @@ export default class ProductAdmin extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Stat Admin</h1>
+            <h1>TranStat Manager</h1>
             <p className="subtitle is-5">Add or remove truck fleet stats/delivery stats using the form below:</p>
             <br />
             <div className="columns">

@@ -42,8 +42,8 @@ export default class Products extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Fleet Truck Status</h1>
-            <p className="subtitle is-5">Manage real-time fleet truck stats and product delivery:</p>
+            <h1>Truck Fleet Status</h1>
+            <p className="subtitle is-5">Manage real-time truck fleet statisics and product delivery:</p>
             <br />
             <div className="columns">
               <div className="column">
