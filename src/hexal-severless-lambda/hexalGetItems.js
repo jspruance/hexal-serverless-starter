@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
         responseBody = JSON.stringify(data.Items); 
         statusCode = 200; 
     }   catch(err) {   
-        responseBody = 'Unable to get products: ${err}';  
+        responseBody = 'Unable to get carriers: ${err}';  
         statusCode = 403;
     }
 

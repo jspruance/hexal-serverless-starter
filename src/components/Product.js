@@ -13,6 +13,7 @@ export default class ProductAdmin extends Component {
     updatedtruckheading: this.props.truckheading,
     updatedtrucknumber: this.props.trucknumber,
     updatedtruckspeed: this.props.truckspeed,
+    updatedfleettype: this.props.fleettype,
   }
 
   handleProductEdit = event => {
@@ -24,7 +25,7 @@ export default class ProductAdmin extends Component {
     event.preventDefault();
     this.setState({ isEditMode: false });
     this.props.handleUpdateProduct(this.props.id, this.state.updatedproductname, this.state.updateddrivername, this.state.updateddate, 
-    this.state.updatedtime, this.state.updatedtrucklocation, this.state.updatedtruckheading, this.state.updatedtrucknumber, this.state.updatedtruckspeed );
+    this.state.updatedtime, this.state.updatedtrucklocation, this.state.updatedtruckheading, this.state.updatedtrucknumber, this.state.updatedtruckspeed, this.state.updatedfleetype );
   }
 
   onAddProductNameChange = event => this.setState({ "updatedproductname": event.target.value });
@@ -35,7 +36,7 @@ export default class ProductAdmin extends Component {
   onAddProductTuckHeadingChange = event => this.setState({ "updatedtruckheading": event.target.value });
   onAddProductTuckNumberChange = event => this.setState({ "updatedtrucknumber": event.target.value });
   onAddProductTuckSpeedChange = event => this.setState({ "updatedtruckspeed": event.target.value });
-  
+  onAddProductFleetTypeChange = event => this.setState({ "updatedfleettype": event.target.value });
   render() {
     return (
       <div className="tile is-child box notification is-success">
@@ -108,6 +109,13 @@ export default class ProductAdmin extends Component {
                 value={this.state.updatedtruckspeed}
                 onChange={this.onAddProductTuckSpeedChange }
               />
+              <input 
+                className="input is-medium"
+                type="text" 
+                placeholder="Enter fleet type"
+                value={this.state.updatedfleettype}
+                onChange={this.onAddProductFleetTypeChange }
+              />
               <p className="product-id">id: { this.props.id }</p>
               <button type="submit" 
                 className="button is-info is-small"
@@ -124,6 +132,7 @@ export default class ProductAdmin extends Component {
               <p className="product-truckheading">truck heading: { this.props.truckheading }</p>
               <p className="product-trucknumber">truck number: { this.props.trucknumber }</p>
               <p className="product-truckspeed">truck speed: { this.props.truckspeed }</p>
+              <p className="product-fleettype">fleet type: { this.props.fleettype }</p>
             </div>
         }
       </div>

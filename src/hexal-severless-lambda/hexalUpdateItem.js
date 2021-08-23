@@ -6,15 +6,16 @@ exports.handler = async (event, context) => {
     let responseBody =  "";   
     let statusCode = 0; 
     
-    const { id, productname }
+    const { id, carriername }
     const params = {         
-        TableName: "Products",
+        //TableName: "Products",
+        TableName: "Carriers",
         Key: {     
             id: id
         },
-        UpdateExpression: "set productname = :n",
+        UpdateExpression: "set carriername = :n",
         ExpressionAttributeValues: {
-            ":n" : productname
+            ":n" : carriername
         },
         ReturnValues: "UPDATED_NEW"
     }; 
@@ -23,7 +24,7 @@ exports.handler = async (event, context) => {
         responseBody = JSON.stringify(data); 
         statusCode = 204; 
     }   catch(err) {   
-        responseBody = 'Unable to update product: ${err}';  
+        responseBody = 'Unable to update carrier: ${err}';  
         statusCode = 403;
     }
 
