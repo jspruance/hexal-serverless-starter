@@ -34,7 +34,7 @@ export default class Products extends Component {
   onAddProductTuckSpeedChange = event => this.setState({ newproduct: { ...this.state.newproduct, "truckspeed": event.target.value } });
   onAddProductFleetTypeChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
 
-  componentDidMount = () => {  // A React life-cycle method: any component inside here will fire when components is initialized.
+  componentDidMount = () => {           // This is a React life-cycle method: any component inside here will fire when components is initialized.
     this.fetchProducts();
   }
 
@@ -49,10 +49,13 @@ export default class Products extends Component {
             <div className="columns">
               <div className="column">
                 <div className="tile is-ancestor">
-                  <div className="tile is-4 is-parent  is-vertical">
+                  <div className="tile is-6 is-parent is-horizontal">
                     { 
                       this.state.products && this.state.products.length > 0
-                      ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} drivername={product.drivername} date={product.date} time={product.time} trucklocation={product.trucklocation} truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} fleettype={product.fleettype} />)
+                      ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} 
+                        drivername={product.drivername} date={product.date} time={product.time} trucklocation={product.trucklocation} 
+                        truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} 
+                        fleettype={product.fleettype} />)
                       : <div className="tile notification is-warning">No products available</div>
                     }
                   </div>

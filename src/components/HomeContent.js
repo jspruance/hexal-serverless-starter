@@ -52,7 +52,7 @@ export default function HomeContent() {
                 </div>
             </div>
         </div>
-    </section>   
+    </section> 
   )
 }
 
