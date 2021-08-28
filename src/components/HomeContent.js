@@ -11,8 +11,8 @@ export default function HomeContent() {
                     </div>
                     <div className="card-content">
                         <div className="content">
-                            <h4>Customer management</h4>
-                            <p>Store your customer's contracted rates, preferences, and history with your company.
+                            <h4>Courier management</h4>
+                            <p>Store your courier's contracted rates, preferences, and history with your company.
                                Customers can use the web portal for direct access to dispatching tools, order history, and personal address books.
                             </p>
                             <p><a href="/">Learn more</a></p>

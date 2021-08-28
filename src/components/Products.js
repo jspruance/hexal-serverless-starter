@@ -43,13 +43,13 @@ export default class Products extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Truck Fleet Status</h1>
-            <p className="subtitle is-5">Manage real-time truck fleet statisics and product delivery:</p>
+            <h1>Fleet Status</h1>
+            <p className="subtitle is-5">Real-time truck fleet statisics and product delivery:</p>
             <br />
             <div className="columns">
               <div className="column">
                 <div className="tile is-ancestor">
-                  <div className="tile is-6 is-parent is-horizontal">
+                  <div className="tile is-12 is-parent is-horizontal">
                     { 
                       this.state.products && this.state.products.length > 0
                       ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} 

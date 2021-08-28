@@ -88,18 +88,18 @@ export default class ProductAdmin extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>TranStat Manager</h1>
+            <h1>Copy-That! Manager</h1>
             <p className="subtitle is-5">Add or remove truck fleet stats/delivery stats using the form below:</p>
             <br />
             <div className="columns">
-              <div className="column is-two-fifths">
+              <div className="column is-one-third">
                 <form onSubmit={event => this.handleAddProduct(this.state.newproduct.id, event)}>
                   <div className="field has-addons">
                     <div className="control">
                       <input 
                         className="input is-medium"
                         type="text" 
-                        placeholder="Truck company"
+                        placeholder="Courier"
                         value={this.state.newproduct.productname}
                         onChange={this.onAddProductNameChange}
                       />
@@ -108,22 +108,29 @@ export default class ProductAdmin extends Component {
                       <input 
                         className="input is-medium"
                         type="text" 
-                        placeholder="Company id"
+                        placeholder="Courier id"
                         value={this.state.newproduct.id}
                         onChange={this.onAddProductIdChange}
                       />
                     </div>
                     <div className="control">
                       <button type="submit" className="button is-primary is-medium">
-                        Add customer
+                        Add
                       </button>
                     </div>
                   </div>
                 </form>
+
+              <div className="columns">
+                <div className="column is-one-third"><br></br>
+                  <img src="timeismoney.png" width="200" height="140" alt="time is money" />
+                </div>
               </div>
-              <div className="column is-two-thirds">
+
+              </div>
+              <div className="column is-three-quarters">
                 <div className="tile is-ancestor">
-                  <div className="tile is-4 is-parent  is-vertical">
+                  <div className="tile is-12 is-parent  is-horizontal">
                     { 
                       this.state.products.map((product, index) => 
                         <Product 
