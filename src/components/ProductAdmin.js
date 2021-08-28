@@ -128,9 +128,9 @@ export default class ProductAdmin extends Component {
               </div>
 
               </div>
-              <div className="column is-three-quarters">
+              <div className="column is-full">
                 <div className="tile is-ancestor">
-                  <div className="tile is-12 is-parent  is-horizontal">
+                  <div className="tile is-10 is-parent  is-horizontal">
                     { 
                       this.state.products.map((product, index) => 
                         <Product 
