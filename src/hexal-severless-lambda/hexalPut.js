@@ -6,13 +6,15 @@ exports.handler = async (event, context) => {
     let responseBody =  "";                                                 // let's create our response variable currently initialized as an empty string for now, then populate it once we get our responce back from our documentClient.put
     let statusCode = 0;                                                     // this next variable is for our statusCode
     
-    const { id, carriername } = JSON.parse(event.body);                     //extract id and productname from body, parse it (JSON.parse) and pass in (event.body).
+    const { id } = JSON.parse(event.body);                     //extract id and productname from body, parse it (JSON.parse) and pass in (event.body).
     
     const params = {                                                        // let's go ahead and set our params object to "empty" and then, we need to follow specific syntax required for DynamoDB
         TableName: "Products",
         Item: {                                                             // pertains the details in terms of what product we're adding to the table.
             id: id,
-            productname: productname 
+            productname: productname,
+            date: date,
+            fleettype: fleettype 
         }
     }; 
     try {

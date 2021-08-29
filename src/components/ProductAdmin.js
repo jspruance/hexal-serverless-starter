@@ -146,7 +146,9 @@ export default class ProductAdmin extends Component {
                           truckheading={product.truckheading}  
                           trucklocation={product.trucklocation}  
                           trucknumber={product.trucknumber}  
-                          truckspeed={product.truckspeed}   
+                          truckspeed={product.truckspeed}
+                          fleetype={product.fleetype}
+
                         />)
                     }
                   </div>

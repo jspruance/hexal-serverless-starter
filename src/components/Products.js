@@ -7,14 +7,13 @@ export default class Products extends Component {
 
   state = {
     newproduct: null,
-    products: [] // we want to set the products array using this.setState method() below.
+    products: []                        // we want to set the products array using this.setState method() below.
   }
 
-  fetchProducts = async () => {    // async/await used with ES6/ES7
-    // add our call to AWS API Gateway to fetch products here
-    // then set them in state
-
-    try {
+  fetchProducts = async () => {         // async/await used with ES6/ES7
+                                        // add our call to AWS API Gateway to fetch products here
+                                        // then set them in state
+   try {
       const res = await axios.get(`${config.api.invokeUrl}/products`);          // pass in the invokeUrl which is imported at the top
       this.setState({ products: res.data });                                    // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
     }catch (err) {
@@ -33,6 +32,7 @@ export default class Products extends Component {
   onAddProductTuckNumberChange = event => this.setState({ newproduct: { ...this.state.newproduct, "trucknumber": event.target.value } });
   onAddProductTuckSpeedChange = event => this.setState({ newproduct: { ...this.state.newproduct, "truckspeed": event.target.value } });
   onAddProductFleetTypeChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
+  //onAddProductDateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "date": event.target.value } });
 
   componentDidMount = () => {           // This is a React life-cycle method: any component inside here will fire when components is initialized.
     this.fetchProducts();
@@ -54,8 +54,7 @@ export default class Products extends Component {
                       this.state.products && this.state.products.length > 0
                       ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} 
                         drivername={product.drivername} date={product.date} time={product.time} trucklocation={product.trucklocation} 
-                        truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} 
-                        fleettype={product.fleettype} />)
+                        truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} fleettype={product.fleettype} />)
                       : <div className="tile notification is-warning">No products available</div>
                     }
                   </div>

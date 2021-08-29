@@ -8,14 +8,16 @@ exports.handler = async (event, context) => {
     
     const { id, carriername }
     const params = {         
-        //TableName: "Products",
-        TableName: "Carriers",
+        TableName: "Products",
+        //TableName: "Carriers",
         Key: {     
             id: id
         },
-        UpdateExpression: "set carriername = :n",
+        UpdateExpression: "set productname = :n",
         ExpressionAttributeValues: {
-            ":n" : carriername
+            ":n" : productname,
+            ":d" : date,
+            ":f" : fleetype
         },
         ReturnValues: "UPDATED_NEW"
     }; 
