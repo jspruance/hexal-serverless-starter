@@ -14,6 +14,8 @@ export default class ProductAdmin extends Component {
     updatedtrucknumber: this.props.trucknumber,
     updatedtruckspeed: this.props.truckspeed,
     updatedfleettype: this.props.fleettype,
+    updatedrate: this.props.rate,
+    updatedtotalmiles: this.props.totalmiles,
   }
 
   handleProductEdit = event => {
@@ -25,7 +27,8 @@ export default class ProductAdmin extends Component {
     event.preventDefault();
     this.setState({ isEditMode: false });
     this.props.handleUpdateProduct(this.props.id, this.state.updatedproductname, this.state.updateddrivername, this.state.updateddate, 
-    this.state.updatedtime, this.state.updatedtrucklocation, this.state.updatedtruckheading, this.state.updatedtrucknumber, this.state.updatedtruckspeed, this.state.updatedfleetype );
+    this.state.updatedtime, this.state.updatedtrucklocation, this.state.updatedtruckheading, this.state.updatedtrucknumber, this.state.updatedtruckspeed, 
+    this.state.updatedfleetype, this.state.updatedrate, this.state.updatedtotalmiles );
   }
 
   onAddProductNameChange = event => this.setState({ "updatedproductname": event.target.value });
@@ -37,6 +40,8 @@ export default class ProductAdmin extends Component {
   onAddProductTuckNumberChange = event => this.setState({ "updatedtrucknumber": event.target.value });
   onAddProductTuckSpeedChange = event => this.setState({ "updatedtruckspeed": event.target.value });
   onAddProductFleetTypeChange = event => this.setState({ "updatedfleettype": event.target.value });
+  onAddProductRateChange = event => this.setState({ "updatedrate": event.target.value });
+  onAddProductTotalMilesChange = event => this.setState({ "totalmiles": event.target.value });
   render() {
     return (
       <div className="tile is-child box notification is-success">
@@ -116,6 +121,34 @@ export default class ProductAdmin extends Component {
                 value={this.state.updatedfleettype}
                 onChange={this.onAddProductFleetTypeChange }
               />
+              <input 
+                className="input is-medium"
+                type="text" 
+                placeholder="Enter rate"
+                value={this.state.updatedrate}
+                onChange={this.onAddProductRateChange }
+              />
+              <input 
+                className="input is-medium"
+                type="text" 
+                placeholder="Enter total miles"
+                value={this.state.updatedtotalmiles}
+                onChange={this.onAddProductTotalMilesChange }
+              />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <p className="product-id">id: { this.props.id }</p>
               <button type="submit" 
                 className="button is-info is-small"
@@ -133,6 +166,8 @@ export default class ProductAdmin extends Component {
               <p className="product-trucknumber">truck number: { this.props.trucknumber }</p>
               <p className="product-truckspeed">truck speed: { this.props.truckspeed }</p>
               <p className="product-fleettype">fleet type: { this.props.fleettype }</p>
+              <p className="product-rate">rate: { this.props.rate }</p>
+              <p className="product-totalmiles">total miles: { this.props.totalmiles }</p>
             </div>
         }
       </div>
