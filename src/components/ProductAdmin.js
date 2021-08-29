@@ -10,6 +10,7 @@ export default class ProductAdmin extends Component {
     newproduct: { 
       "productname": "", 
       "id": "", 
+      "fleetype": ""
     },
     products: []
   }
@@ -21,11 +22,13 @@ export default class ProductAdmin extends Component {
       const params = {
         "id": id,
         "productname": this.state.newproduct.productname,
+        "fleetype": this.state.newproduct.fleetype,
         
       };
       await axios.post(`${config.api.invokeUrl}/products/{id}`, params);
       this.setState({ products: [...this.state.products, this.state.newproduct] });         // using the spread operator [...] to add in the current state.
-      this.setState({ newproduct: { "productname": "", "id": ""}});                         // now, reset the state to make sure it's a property initialized to empty strings again.
+      this.setState({ newproduct: { "productname": "", "id": "", "fleettype": ""}});        // now, reset the state to make sure it's a property initialized to empty strings again.
+    
     }catch (err) {
       console.log('An error has occurred: ${err}');
     }
@@ -38,11 +41,14 @@ export default class ProductAdmin extends Component {
       const params = {
         "id": id,
         "productname": name,
+        
       };
       await axios.patch(`${config.api.invokeUrl}/products/{id}`, params);
       const productToUpdate = [...this.state.products].find(product => product.id === id);
       const updatedProducts = [...this.state.products].filter(product => product.id !== id);
       productToUpdate.productname = name;
+      
+
       updatedProducts.push(productToUpdate);
       this.setState({products: updatedProducts});
     }catch (err) {
@@ -78,6 +84,7 @@ export default class ProductAdmin extends Component {
 
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
+  onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
   
   componentDidMount = () => {
     this.fetchProducts();
@@ -146,7 +153,9 @@ export default class ProductAdmin extends Component {
                           truckheading={product.truckheading}  
                           trucklocation={product.trucklocation}  
                           trucknumber={product.trucknumber}  
-                          truckspeed={product.truckspeed}   
+                          truckspeed={product.truckspeed}
+                          fleettype={product.fleettype}
+
                         />)
                     }
                   </div>
