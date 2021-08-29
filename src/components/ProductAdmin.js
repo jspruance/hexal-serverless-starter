@@ -160,13 +160,10 @@ export default class ProductAdmin extends Component {
                           trucklocation={product.trucklocation}  
                           trucknumber={product.trucknumber}  
                           truckspeed={product.truckspeed}
-<<<<<<< HEAD
                           fleetype={product.fleetype}
-=======
-                          fleettype={product.fleettype}
                           rate={product.rate}
                           totalmiles={product.totalmiles}
->>>>>>> 512ee86abc732965b2ed1796906b1f60054b909b
+
 
                         />)
                     }
