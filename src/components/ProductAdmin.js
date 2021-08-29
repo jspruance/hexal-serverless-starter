@@ -10,7 +10,9 @@ export default class ProductAdmin extends Component {
     newproduct: { 
       "productname": "", 
       "id": "", 
-      "fleetype": ""
+      "fleetype": "",
+      "rate": "",
+      "totalmiles": ""
     },
     products: []
   }
@@ -23,11 +25,13 @@ export default class ProductAdmin extends Component {
         "id": id,
         "productname": this.state.newproduct.productname,
         "fleetype": this.state.newproduct.fleetype,
+        "rate": this.state.newproduct.rate,
+        "totalmiles": this.state.newproduct.totalmiles,
         
       };
       await axios.post(`${config.api.invokeUrl}/products/{id}`, params);
       this.setState({ products: [...this.state.products, this.state.newproduct] });         // using the spread operator [...] to add in the current state.
-      this.setState({ newproduct: { "productname": "", "id": "", "fleettype": ""}});        // now, reset the state to make sure it's a property initialized to empty strings again.
+      this.setState({ newproduct: { "productname": "", "id": "", "fleettype": "", "rate": "", "totalmiles": ""    }});        // now, reset the state to make sure it's a property initialized to empty strings again.
     
     }catch (err) {
       console.log('An error has occurred: ${err}');
@@ -85,6 +89,8 @@ export default class ProductAdmin extends Component {
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
+  onAddRateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "rate": event.target.value } });
+  onAddTotalMilesChange = event => this.setState({ newproduct: { ...this.state.newproduct, "totalmiles": event.target.value } });
   
   componentDidMount = () => {
     this.fetchProducts();
@@ -137,7 +143,7 @@ export default class ProductAdmin extends Component {
               </div>
               <div className="column is-full">
                 <div className="tile is-ancestor">
-                  <div className="tile is-10 is-parent  is-horizontal">
+                  <div className="tile is-9 is-parent  is-horizontal">
                     { 
                       this.state.products.map((product, index) => 
                         <Product 
@@ -155,6 +161,8 @@ export default class ProductAdmin extends Component {
                           trucknumber={product.trucknumber}  
                           truckspeed={product.truckspeed}
                           fleettype={product.fleettype}
+                          rate={product.rate}
+                          totalmiles={product.totalmiles}
 
                         />)
                     }

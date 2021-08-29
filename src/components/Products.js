@@ -33,6 +33,9 @@ export default class Products extends Component {
   onAddProductTuckNumberChange = event => this.setState({ newproduct: { ...this.state.newproduct, "trucknumber": event.target.value } });
   onAddProductTuckSpeedChange = event => this.setState({ newproduct: { ...this.state.newproduct, "truckspeed": event.target.value } });
   onAddProductFleetTypeChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
+  onAddProductRateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "rate": event.target.value } });
+  onAddProductTotalMilesChange = event => this.setState({ newproduct: { ...this.state.newproduct, "totalmiles": event.target.value } });
+
 
   componentDidMount = () => {           // This is a React life-cycle method: any component inside here will fire when components is initialized.
     this.fetchProducts();
@@ -55,7 +58,7 @@ export default class Products extends Component {
                       ? this.state.products.map(product => <Product name={product.productname} id={product.id} key={product.id} 
                         drivername={product.drivername} date={product.date} time={product.time} trucklocation={product.trucklocation} 
                         truckheading={product.truckheading} trucknumber={product.trucknumber} truckspeed={product.truckspeed} 
-                        fleettype={product.fleettype} />)
+                        fleettype={product.fleettype} rate={product.rate} totalmiles={product.totalmiles}    />)
                       : <div className="tile notification is-warning">No products available</div>
                     }
                   </div>
