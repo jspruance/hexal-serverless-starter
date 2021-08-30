@@ -44,7 +44,7 @@ export default class ProductAdmin extends Component {
   onAddProductTotalMilesChange = event => this.setState({ "totalmiles": event.target.value });
   render() {
     return (
-      <div className="tile is-child box notification is-success">
+      <div className="tile is-child box notification is-info">
         {
           this.props.isAdmin && 
           <Fragment>

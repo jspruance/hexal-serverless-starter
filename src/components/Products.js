@@ -7,12 +7,13 @@ export default class Products extends Component {
 
   state = {
     newproduct: null,
-    products: []                        // we want to set the products array using this.setState method() below.
+    products: []           // we want to set the products array using this.setState method() below.
   }
 
-  fetchProducts = async () => {         // async/await used with ES6/ES7
-                                        // add our call to AWS API Gateway to fetch products here
-                                        // then set them in state
+  fetchProducts = async () => {         
+    // async/await used with ES6/ES7
+    // add our call to AWS API Gateway to fetch products here
+    // then set them in state
    try {
       const res = await axios.get(`${config.api.invokeUrl}/products`);          // pass in the invokeUrl which is imported at the top
       this.setState({ products: res.data });                                    // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
@@ -35,9 +36,6 @@ export default class Products extends Component {
   onAddProductRateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "rate": event.target.value } });
   onAddProductTotalMilesChange = event => this.setState({ newproduct: { ...this.state.newproduct, "totalmiles": event.target.value } });
  
-
-
-
   componentDidMount = () => {           // This is a React life-cycle method: any component inside here will fire when components is initialized.
     this.fetchProducts();
   }
