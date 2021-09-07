@@ -1,22 +1,22 @@
 import React, { Component, Fragment } from 'react';
 import Product from './Product';
-import axios from "axios";   // http wrapper similiar to fetch; this library allows us to do things like axios.get, axios.post and so forth.
+import axios from "axios";   // axios is an http wrapper similiar to fetch; this library allows us to do things like axios.get, axios.post and so forth.
 const config = require('../config.json');
 
 export default class Products extends Component {
 
   state = {
     newproduct: null,
-    products: []           // we want to set the products array using this.setState method() below.
+    products: []           // Here we want to set the products array using this.setState method() below.
   }
 
   fetchProducts = async () => {         
-    // async/await used with ES6/ES7
-    // add our call to AWS API Gateway to fetch products here
+    // async/await used with ES6/ES7...
+    // here we add our call to AWS API Gateway to fetch products
     // then set them in state
    try {
-      const res = await axios.get(`${config.api.invokeUrl}/products`);          // pass in the invokeUrl which is imported at the top
-      this.setState({ products: res.data });                                    // with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
+      const res = await axios.get(`${config.api.invokeUrl}/products`);          // Here we pass in the invokeUrl which is imported in at the top...
+      this.setState({ products: res.data });                                    // As with React we never set state directtly, instead we use a helper called this.setState and pass in the new state. The res.data contain the new array of products.
     }catch (err) {
       console.log(`An error has occurred: ${err}`);
     }
@@ -48,6 +48,15 @@ export default class Products extends Component {
             <h1>Fleet Status</h1>
             <p className="subtitle is-5">Real-time truck fleet statisics and product delivery:</p>
             <br />
+
+
+            
+
+
+
+
+
+
             <div className="columns">
               <div className="column">
                 <div className="tile is-ancestor">
