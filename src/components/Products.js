@@ -48,15 +48,6 @@ export default class Products extends Component {
             <h1>Fleet Status</h1>
             <p className="subtitle is-5">Real-time truck fleet statisics and product delivery:</p>
             <br />
-
-
-            
-
-
-
-
-
-
             <div className="columns">
               <div className="column">
                 <div className="tile is-ancestor">

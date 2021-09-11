@@ -10,7 +10,7 @@ export default class ProductAdmin extends Component {
     newproduct: { 
       "productname": "", 
       "id": "", 
-      "fleetype": "",
+      "fleettype": "",
       "rate": "",
       "totalmiles": ""
     },
@@ -24,7 +24,7 @@ export default class ProductAdmin extends Component {
       const params = {
         "id": id,
         "productname": this.state.newproduct.productname,
-        "fleetype": this.state.newproduct.fleetype,
+        "fleettype": this.state.newproduct.fleetype,
         "rate": this.state.newproduct.rate,
         "totalmiles": this.state.newproduct.totalmiles,
         
@@ -88,9 +88,9 @@ export default class ProductAdmin extends Component {
 
   onAddProductNameChange = event => this.setState({ newproduct: { ...this.state.newproduct, "productname": event.target.value } });
   onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "id": event.target.value } });
-  onAddProductIdChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
-  onAddRateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "rate": event.target.value } });
-  onAddTotalMilesChange = event => this.setState({ newproduct: { ...this.state.newproduct, "totalmiles": event.target.value } });
+  onAddProductFleetTypeChange = event => this.setState({ newproduct: { ...this.state.newproduct, "fleettype": event.target.value } });
+  onAddProductRateChange = event => this.setState({ newproduct: { ...this.state.newproduct, "rate": event.target.value } });
+  onAddProductTotalMilesChange = event => this.setState({ newproduct: { ...this.state.newproduct, "totalmiles": event.target.value } });
   
   componentDidMount = () => {
     this.fetchProducts();
@@ -101,7 +101,7 @@ export default class ProductAdmin extends Component {
       <Fragment>
         <section className="section">
           <div className="container">
-            <h1>Copy-That! Manager</h1>
+            <h1>Status-Pro Manager</h1>
             <p className="subtitle is-5">Add or remove truck fleet stats/delivery stats using the form below:</p>
             <br />
             <div className="columns">
@@ -160,7 +160,7 @@ export default class ProductAdmin extends Component {
                           trucklocation={product.trucklocation}  
                           trucknumber={product.trucknumber}  
                           truckspeed={product.truckspeed}
-                          fleetype={product.fleetype}
+                          fleettype={product.fleettype}
                           rate={product.rate}
                           totalmiles={product.totalmiles}
 

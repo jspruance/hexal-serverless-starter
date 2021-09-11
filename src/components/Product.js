@@ -28,7 +28,7 @@ export default class ProductAdmin extends Component {
     this.setState({ isEditMode: false });
     this.props.handleUpdateProduct(this.props.id, this.state.updatedproductname, this.state.updateddrivername, this.state.updateddate, 
     this.state.updatedtime, this.state.updatedtrucklocation, this.state.updatedtruckheading, this.state.updatedtrucknumber, this.state.updatedtruckspeed, 
-    this.state.updatedfleetype, this.state.updatedrate, this.state.updatedtotalmiles );
+    this.state.updatedfleettype, this.state.updatedrate, this.state.updatedtotalmiles );
   }
 
   onAddProductNameChange = event => this.setState({ "updatedproductname": event.target.value });
