@@ -135,23 +135,10 @@ export default class ProductAdmin extends Component {
                 value={this.state.updatedtotalmiles}
                 onChange={this.onAddProductTotalMilesChange }
               />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              
               <p className="product-id">id: { this.props.id }</p>
               <button type="submit" 
-                className="button is-info is-small"
+                className="button is-success is-small"
                 onClick={ this.handleEditSave }
               >save</button>
             </div>

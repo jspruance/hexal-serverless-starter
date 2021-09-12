@@ -103,7 +103,7 @@ export default class ProductAdmin extends Component {
           <div className="container">
             <h1>Status-Pro Manager</h1>
             <p className="subtitle is-5">Add or remove truck fleet stats/delivery stats using the form below:</p>
-            <br />
+            
             <div className="columns">
               <div className="column is-one-third">
                 <form onSubmit={event => this.handleAddProduct(this.state.newproduct.id, event)}>
@@ -133,13 +133,11 @@ export default class ProductAdmin extends Component {
                     </div>
                   </div>
                 </form>
-
-              <div className="columns">
-                <div className="column is-one-third"><br></br>
-                  <img src="timeismoney.png" width="200" height="140" alt="time is money" />
-                </div>
-              </div>
-
+                    <div className="columns">
+                      <div className="column is-one-third"><br />
+                        <img src="timeismoney.png" width="200" height="140" alt="time is money" />
+                      </div>
+                    </div>
               </div>
               <div className="column is-full">
                 <div className="tile is-ancestor">
@@ -163,9 +161,7 @@ export default class ProductAdmin extends Component {
                           fleettype={product.fleettype}
                           rate={product.rate}
                           totalmiles={product.totalmiles}
-
-
-                        />)
+                      />)
                     }
                   </div>
                 </div>

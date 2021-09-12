@@ -6,18 +6,20 @@ exports.handler = async (event, context) => {
     let responseBody =  "";   
     let statusCode = 0; 
     
-    const { id, carriername }
+    const { id, productname }
     const params = {         
         TableName: "Products",
-        //TableName: "Carriers",
+
+        
         Key: {     
-            id: id
+            id: id,
+            
+
         },
-        UpdateExpression: "set productname = :n",
+        UpdateExpression: "set productname = :n", 
         ExpressionAttributeValues: {
             ":n" : productname,
-            ":d" : date,
-            ":f" : fleetype
+           
         },
         ReturnValues: "UPDATED_NEW"
     }; 
@@ -39,3 +41,43 @@ exports.handler = async (event, context) => {
     };
     return response;     
 };
+
+
+/*
+
+aws dynamodb update-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"789"}}' \
+    --update-expression "SET ProductCategory = :c, Price = :p" \
+    --expression-attribute-values file://values.json \
+    --return-values ALL_NEW
+
+
+*/
+
+/* also... https://dynobase.dev/dynamodb-nodejs/#update-item
+
+const AWS = require("aws-sdk")
+AWS.config.update({ region: "us-east-1" })
+const dynamoDB = new AWS.DynamoDB.DocumentClient()
+
+dynamoDB
+  .update({
+    TableName: "my-table",
+    Key: {
+      id: "123",
+    },
+    UpdateExpression: `set score = :score + :value`,
+    ExpressionAttributeValues: {
+      ":value": 1,
+    },
+  })
+  .promise()
+  .then(data => console.log(data.Attributes))
+  .catch(console.error)
+
+
+
+
+
+*/
