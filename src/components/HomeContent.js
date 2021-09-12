@@ -11,7 +11,7 @@ export default function HomeContent() {
                     </div>
                     <div className="card-content">
                         <div className="content">
-                            <h4>Courier management</h4>
+                            <h4>Managed Carrier</h4>
                             <p>Store your courier's contracted rates, preferences, and history with your company.
                                Customers can use the web portal for direct access to dispatching tools, order history, and personal address books.
                             </p>
@@ -27,7 +27,7 @@ export default function HomeContent() {
                     </div>
                     <div className="card-content">
                         <div className="content">
-                            <h4>Vehicle management</h4>
+                            <h4>Managed Fleet</h4>
                             <p>Delivery software that can track your vehicles and their required maintenance. When a scheduled mileage or date is reached, you are notified that a vehicle needs maintenance.
                             </p>
                             <p><a href="/">Learn more</a></p>
@@ -42,7 +42,7 @@ export default function HomeContent() {
                     </div>
                      <div className="card-content">
                         <div className="content">
-                            <h4>Tracking and tracing</h4>
+                            <h4>On-Demand track and trace</h4>
                             <p>Locate, view, and edit information about a package or shipment from a common interface.
                                Every order lists in the system. Orders may be sorted, filtered, and searched.
                             </p>
