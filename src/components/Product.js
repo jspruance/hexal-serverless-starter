@@ -155,6 +155,19 @@ export default class ProductAdmin extends Component {
               <p className="product-fleettype">fleet type: { this.props.fleettype }</p>
               <p className="product-rate">rate: { this.props.rate }</p>
               <p className="product-totalmiles">total miles: { this.props.totalmiles }</p>
+
+              <br />
+
+
+              <div className="buttons">
+                <a href="/register" className="button is-primary">
+                  <strong>On-Demand</strong>
+                </a>
+                
+              </div>
+
+
+
             </div>
         }
       </div>

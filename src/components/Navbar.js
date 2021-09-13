@@ -32,7 +32,7 @@ export default class Navbar extends Component {
                 <a href="/login" className="button is-light">
                   Log in
                 </a>
-              </div><br></br><br></br>
+              </div><br />
             </div>
           </div>
         </div>
