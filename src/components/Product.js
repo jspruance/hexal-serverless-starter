@@ -157,7 +157,7 @@ export default class ProductAdmin extends Component {
               <p className="product-totalmiles">total miles: { this.props.totalmiles }</p>
               <br />
               <div className="buttons">
-                <a href="/register" className="button is-warning">
+                <a href="/" onClick={this.handleProductEdit} className="button is-warning">
                   On-Demand
                 </a>
               </div>
