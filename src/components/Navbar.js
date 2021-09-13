@@ -26,10 +26,10 @@ export default class Navbar extends Component {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a href="/register" className="button is-info">
+                <a href="/register" className="button is-light">
                   <strong>Sign up</strong>
                 </a>
-                <a href="/login" className="button is-light">
+                <a href="/login" className="button is-info">
                   Log in
                 </a>
               </div><br />
