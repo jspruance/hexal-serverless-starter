@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "aws-iot-device-sdk": "^2.2.11",
     "axios": "^0.18.0",
     "bulma": "^0.7.2",
     "react": "^16.7.0",

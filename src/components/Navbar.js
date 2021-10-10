@@ -6,7 +6,7 @@ export default class Navbar extends Component {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <img src="timeismoney.png" width="30" height="100" alt="hexal logo" /><strong>Status-Pro</strong>&reg;
+            <img src="timeismoney.png" width="30" height="100" alt="hexal logo" /><strong>Middle of the Map Trucking</strong>&reg;
           </a>
         </div>
 
@@ -20,6 +20,9 @@ export default class Navbar extends Component {
             </a>
             <a href="/admin" className="navbar-item">
               Admin
+            </a>
+            <a href="/careers" className="navbar-item">
+              Careers
             </a>
           </div>
 

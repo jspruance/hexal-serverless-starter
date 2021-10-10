@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Products from './components/Products';
 import ProductAdmin from './components/ProductAdmin';
+import Careers from './components/Careers';
 import Footer from './components/Footer';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
@@ -21,6 +22,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/products" component={Products} />
               <Route exact path="/admin" component={ProductAdmin} />
+              <Route exact path="/careers" component={Careers} />
             </Switch>
             <Footer />
           </div>

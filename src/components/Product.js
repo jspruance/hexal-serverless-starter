@@ -23,6 +23,21 @@ export default class ProductAdmin extends Component {
     this.setState({ isEditMode: true });
   }
 
+
+
+
+  
+
+  handleProductOnDemand = event => {
+    event.preventDefault();
+    this.setState({ isEditMode: false });
+  }
+
+
+
+
+
+
   handleEditSave = event => {
     event.preventDefault();
     this.setState({ isEditMode: false });
@@ -156,11 +171,23 @@ export default class ProductAdmin extends Component {
               <p className="product-rate">rate: { this.props.rate }</p>
               <p className="product-totalmiles">total miles: { this.props.totalmiles }</p>
               <br />
+
+
+
+
+
               <div className="buttons">
-                <a href="/" onClick={this.handleProductEdit} className="button is-warning">
+                <a href="/" onClick={this.handleProductOnDemand} className="button is-warning">
                   On-Demand
                 </a>
               </div>
+
+
+
+
+
+
+
           </div>
         }
       </div>
