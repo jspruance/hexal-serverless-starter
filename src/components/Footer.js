@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="content has-text-centered">
         <p>
-           Hexal 2019. The source code is licensed MIT. The website content is licensed CC BY NC SA 4.0.
+          Status-Pro&reg; &bull; 2020&copy; &bull; <i>by Sealy, LLC </i>  &bull; The application software content is licensed <i>by Sealy - APOS Thundercloud Series</i> &bull; USA
         </p>
       </div>
     </footer>

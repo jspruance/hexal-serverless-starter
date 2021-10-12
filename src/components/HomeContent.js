@@ -11,8 +11,10 @@ export default function HomeContent() {
                     </div>
                     <div className="card-content">
                         <div className="content">
-                            <h4>Energy conservation</h4>
-                            <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.</p>
+                            <h4>Managed Carrier</h4>
+                            <p>Store your courier's contracted rates, preferences, and history with your company.
+                               Customers can use the web portal for direct access to dispatching tools, order history, and personal address books.
+                            </p>
                             <p><a href="/">Learn more</a></p>
                         </div>
                     </div>
@@ -25,9 +27,9 @@ export default function HomeContent() {
                     </div>
                     <div className="card-content">
                         <div className="content">
-                            <h4>Water conservation</h4>
-                            <p>Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem
-                            sed risus.</p>
+                            <h4>Managed Fleet</h4>
+                            <p>Delivery software that can track your vehicles and their required maintenance. When a scheduled mileage or date is reached, you are notified that a vehicle needs maintenance.
+                            </p>
                             <p><a href="/">Learn more</a></p>
                         </div>
                     </div>
@@ -40,14 +42,17 @@ export default function HomeContent() {
                     </div>
                      <div className="card-content">
                         <div className="content">
-                            <h4>Solar energy</h4>
-                            <p>Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                            <h4>On-Demand track and trace</h4>
+                            <p>Locate, view, and edit information about a package or shipment from a common interface.
+                               Every order lists in the system. Orders may be sorted, filtered, and searched.
+                            </p>
                             <p><a href="/">Learn more</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
   )
 }
+
