@@ -20,7 +20,7 @@ export default function Hero() {
     
     <div class="notification is-info">
   
-  <a href="/careers"><i class="subtitle">We are now hiring!</i></a>
+  <a href="https://www.midmaptrucking.com"><i class="subtitle">We are now hiring!</i></a>
 </div>
   </div>
   
